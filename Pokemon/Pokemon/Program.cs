@@ -13,6 +13,8 @@ namespace Pokemon
             julian_bulbasaur.Attack(blake_bulbasaur);
             julian_bulbasaur.Cry();
             hunter_charmander.Attack(blake_bulbasaur);
+            hunter_charmander.Attack(blake_bulbasaur);
+            hunter_charmander.Attack(blake_bulbasaur);
             hunter_charmander.Cry();
         }
     }

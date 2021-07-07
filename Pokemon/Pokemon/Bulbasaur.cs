@@ -24,9 +24,14 @@ namespace Pokemon
             MoveSet[1] = "Growl";
         }
 
-        public void Cry()
+        public override void Cry()
         {
             Console.WriteLine($"\n{this.Name} says: Bulba Bulba!\n");
+        }
+
+        public override int Attack(Pokemon foe)
+        {
+            return base.Attack(foe);
         }
     }
 }

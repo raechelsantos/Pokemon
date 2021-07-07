@@ -26,11 +26,37 @@ namespace Pokemon
             this.Def = 10;
             this.Exp = 0;
         }
-        public int Attack(Pokemon foe)
+
+        public abstract void Cry();
+
+        public virtual int Attack(Pokemon foe)
         {
             foe.HP -= this.Atk / 2;
             Console.WriteLine($"{this.Name} used {MoveSet[0]}!\n{foe.Name} lost {this.Atk / 2} HP. {foe.Name}'s HP is now at {foe.HP}.");
+            
+            if (foe.HP == 0)
+            {
+                Console.WriteLine($"{foe.Name} fainted!");
+                this.GainExp();
+            }
             return foe.HP;
+        }
+
+        public void GainExp()
+        {
+            this.Exp += 20;
+            Console.WriteLine($"{this.Name} gained 20 EXP.");
+
+            if (this.Exp == 100)
+            {
+                this.LevelUp();
+            }
+        }
+
+        public void LevelUp()
+        {
+            this.Level = +1;
+            Console.WriteLine($"{this.Name} leveled up! {this.Name} is now at Lvl. {this.Level}.");
         }
     }
 }
